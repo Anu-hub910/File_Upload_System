@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UploadHub Dashboard</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- Toast -->
+<div id="toast-container"></div>
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-inner">
+
+        <div class="logo">
+            <div class="logo-icon">⬆</div>
+            <span>UploadHub</span>
+        </div>
+
+        <p class="header-sub">Upload • Manage • Preview Files</p>
+
+        <!-- USER INFO -->
+        <div style="margin-top:10px;">
+            <span style="color:#38bdf8;">👤 {{ user }}</span>
+            <a href="/logout" style="margin-left:15px; color:red; text-decoration:none;">Logout</a>
+        </div>
+
+    </div>
+</header>
+
+<!-- MAIN -->
+<main class="main">
+
+    <!-- UPLOAD SECTION -->
+    <section class="upload-section">
+
+        <div class="drop-zone" id="dropZone">
+            <div class="drop-zone-inner">
+
+                <div class="drop-icon">⬆</div>
+
+                <h2 class="drop-title">Drop files here</h2>
+
+                <p class="drop-sub">
+                    or <span id="browseLink" class="browse-link">browse files</span>
+                </p>
+
+                <p class="drop-types">
+                    Images • PDF • DOCX • ZIP • MP3 • MP4
+                </p>
+
+                <p class="drop-limit">
+                    Max size: 16MB
+                </p>
+
+            </div>
+        </div>
+
+        <!-- Hidden input -->
+        <input type="file" id="fileInput" multiple hidden>
+
+        <!-- Progress -->
+        <div class="progress-wrap" id="progressWrap">
+            <div class="progress-info">
+                <span id="progressFileName">Uploading...</span>
+                <span id="progressPercent">0%</span>
+            </div>
+
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery-section">
+
+        <div class="gallery-header">
+            <h2 class="gallery-title">Your Files</h2>
+            <span class="file-count" id="fileCount">0 files</span>
+        </div>
+
+        <!-- FILE GRID -->
+        <div class="gallery" id="gallery">
+
+            <!-- EMPTY STATE -->
+            <div class="gallery-empty" id="emptyState">
+                <div class="empty-icon">📂</div>
+                <p>No files uploaded yet.<br>Upload your first file above!</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- JS -->
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

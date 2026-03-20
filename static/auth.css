@@ -1,0 +1,82 @@
+/* ===== AUTH COMMON STYLES ===== */
+body {
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0a0f1f, #111827);
+}
+
+/* CARD */
+.auth-container {
+    width: 340px;
+    padding: 40px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.05);
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    animation: fadeIn 0.5s ease;
+}
+
+/* TITLE */
+.auth-container h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* INPUT */
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+}
+
+/* BUTTON */
+.auth-container button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+/* LOGIN BUTTON */
+.login-btn {
+    background: linear-gradient(135deg, #7c6ef5, #38bdf8);
+}
+
+/* REGISTER BUTTON */
+.register-btn {
+    background: linear-gradient(135deg, #7c6ef5, #38bdf8);
+}
+
+/* LINK */
+.auth-container a {
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+/* DIFFERENT LINK COLORS */
+.login-link {
+    color: #38bdf8;
+}
+
+.register-link {
+    color: #38bdf8;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
