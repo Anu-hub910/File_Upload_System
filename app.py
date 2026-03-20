@@ -19,16 +19,17 @@ ALLOWED_EXTENSIONS = {
 }
 
 IMAGE_EXTENSIONS = {'png','jpg','jpeg','gif','webp'}
+def hash_password(password):
+    import hashlib
+    return hashlib.sha256(password.encode()).hexdigest()
 
 
 # ---------- DATABASE ----------
 def init_db():
-    conn = sqlite3.connect('users.db')
+    conn = sqlite3.connect(os.path.join(os.getcwd(), 'users.db'))
 
-    # Create table
     conn.execute('CREATE TABLE IF NOT EXISTS users (username TEXT UNIQUE, password TEXT)')
 
-    # 🔥 Auto-create demo user
     conn.execute(
         "INSERT OR IGNORE INTO users VALUES (?, ?)",
         ("anusa58", hash_password("Har@123"))
